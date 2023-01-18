@@ -47,7 +47,12 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 ### What is the difference between Fields and Properties?
 
 ### What do you mean by Reflection in C# ? 
-
+Reflection is the ability of a code to access the metadata of the assembly during the runtime.
+Example:
+```csharp 
+ string name = "Chetan Kharel";
+ Console.WriteLine(name.GetType());
+```
 ### When should we use abstract classes and when should we use interfaces? When do you override a function?
 
 ### What is Singleton class and what are its use cases?
@@ -61,14 +66,13 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 ### What do you know about ORM? What are the advantages of ORM?
 
 ### What is connection pooling in ADO.NET ?
-<p>Opening of database connection is very costly. To open a physical database connection our application does following:</p>
+Opening of database connection is very costly. To open a physical database connection our application does following:
 * [x] Establish a socket connection
 * [x] Make a initial hand-shake with the server
 * [x] Parse the connection string
 * [x] Make an authentication request to the server
 * [x] Finally the connection object will be created
 <p>Hence, to minimize the cost of opening of connections, ADO.NET uses an optimization technique called connection pooling. A connection pool is different for every unique connection string.</p>
-
 
 ### What are the different types of architecture available in ADO.NET ?
 
