@@ -3,11 +3,15 @@
 ### What is Big O Notation ?
 
 ### What is CLR ?
-
+CLR (Common Language Runtime) is the runtime environment that converts the IL code to machine code.
+Features are:
+* [x] Garbage collection
+* [x] Ease usage of library written in other languages
+* [x] Performance improvements
 ### What is IL (Intermediate Language) ?
 
-### Explain the importance of garbage collectors ?
-
+### Explain the importance of garbage collector ?
+The garbage collector (GC) acts a a memory manager. It is the background process which runs under CLR and claims unused managed resources.
 ### What is managed code and unmanaged code ?
 <p>Code which runs under the CLR is called managed code.</p>
 <p>Code which does not run under the control of CLR is called unmanaged code. </p>
