@@ -9,7 +9,7 @@ Features are:
 * [x] Ease usage of library written in other languages
 * [x] Performance improvements
 ### What is IL (Intermediate Language) ?
-
+When we compile any code written in high level language such as C#, code written is converted to IL (Intermediate Language) code. Then after IL code runs over the CLR to get executed on the machine.
 ### Explain the importance of garbage collector ?
 The garbage collector (GC) acts a a memory manager. It is the background process which runs under CLR and claims unused managed resources.
 ### What is managed code and unmanaged code ?
@@ -19,9 +19,34 @@ The garbage collector (GC) acts a a memory manager. It is the background process
 ### What are value types and reference types?
 
 ### Explain boxing and unboxing?
-
-### What is the use of finally block?	
-
+When data moves from value type to reference type it is called Boxing. Example.
+```csharp
+int a = 25;
+object o = a;
+```
+When data moves from reference type to value type it is called Unboxing. Example:
+```csharp
+object o = 25;
+int a = (int)o;
+```
+Boxing and Unboxing leads to performance problem. We should avoid it as much as possible.
+### What is the use of finally block?
+It is the block of code which executes irrespective of the exception or not. It is used along with `try` and `catch` block. Some cleanup code is written in this block. For example:
+```csharp
+var con = new SqlConnection();
+try 
+{
+    con.Open();
+}
+catch(Exception ex)
+{
+    throw ex;
+}
+finally
+{
+    con.Close();
+}
+```
 ### Explain casting, implicit casting and explicit casting?
 Converting from one data type to another is called casting.
 If the casting happen automatically, then it is called implicit casting.
@@ -31,7 +56,7 @@ short a = 25;
 int b = a;
 ```
 When you try to convert higher types to lower types then it is called explicit casting.
-```csharp
+```csharp 
 double a = 25.23;
 int b = a;
 ```
@@ -45,7 +70,22 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 ### What is the difference between Array and ArrayList ?
 
 ### What is the purpose of “params” keyword in C# ?
+Params is used as a parameter which can take the variable number of arguments. For example:
+```csharp
+public int Add(params int[] numbers)
+{
+    int sum = 0;
+    for(int i=0; i < numbers.Length; i++)
+    {
+        sum += numbers[i];
+    }
 
+    return sum;
+}
+
+Console.WriteLine(Add(123));
+Console.WriteLine(Add(1234567));
+```
 ### What is the difference between String and StringBuilder?
 
 ### What is the difference between Fields and Properties?
