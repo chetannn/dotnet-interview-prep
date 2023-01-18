@@ -9,6 +9,8 @@
 ### Explain the importance of garbage collectors ?
 
 ### What is managed code and unmanaged code ?
+<p>Code which runs under the CLR is called managed code.</p>
+<p>Code which does not run under the control of CLR is called unmanaged code. </p>
 
 ### What are value types and reference types?
 
@@ -17,7 +19,19 @@
 ### What is the use of finally block?	
 
 ### Explain casting, implicit casting and explicit casting?
-
+Converting from one data type to another is called casting.
+If the casting happen automatically, then it is called implicit casting.
+In other words, when you try to convert lower types to higher types it is called as implicit casting.
+```csharp
+short a = 25;
+int b = a;
+```
+When you try to convert higher types to lower types then it is called explicit casting.
+```csharp
+double a = 25.23;
+int b = a;
+```
+Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e data loss.
 ### Difference between constant and read only ?
 
 ### Difference between ref and out keyword ?
@@ -47,10 +61,19 @@
 ### What do you know about ORM? What are the advantages of ORM?
 
 ### What is connection pooling in ADO.NET ?
+<p>Opening of database connection is very costly. To open a physical database connection our application does following:</p>
+* [x] Establish a socket connection
+* [x] Make a initial hand-shake with the server
+* [x] Parse the connection string
+* [x] Make an authentication request to the server
+* [x] Finally the connection object will be created
+<p>Hence, to minimize the cost of opening of connections, ADO.NET uses an optimization technique called connection pooling. A connection pool is different for every unique connection string.</p>
+
 
 ### What are the different types of architecture available in ADO.NET ?
 
 ### What is LINQ and why is it used ?
+LINQ stands for Language Integrated Query. It is a uniform programming model for any kind of data access. LINQ enables you to query and manipulate data independently of data sources. It also provides full type safety and compile time checking.
 
 ### What are the differences between lazy, eager and explicit loading in Entity Framework?
 
