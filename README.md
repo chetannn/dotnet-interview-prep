@@ -68,7 +68,13 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 ### Difference between stack and heap ?
 
 ### What is the difference between Array and ArrayList ?
-
+| Array                                       | ArrayList                                            |
+|---------------------------------------------|------------------------------------------------------|
+| Array has fixed length.                     | ArrayList is dynamic in nature.                      |
+| It is strongly typed.                       | It does not have strong typings.                     |
+| Array can only store define data types.     | ArrayList can store any datatypes.                   |
+| It is included in `System.Array` namespace. | It is included in `System.Collection` namespace.     |
+| It is performant than ArrayList             | It has performance issue due to Boxing and Unboxing. |
 ### What is the purpose of “params” keyword in C# ?
 Params is used as a parameter which can take the variable number of arguments. For example:
 ```csharp
@@ -87,7 +93,11 @@ Console.WriteLine(Add(123));
 Console.WriteLine(Add(1234567));
 ```
 ### What is the difference between String and StringBuilder?
-
+| String                                                                                                                                                         | StringBuilder                             |
+|----------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------|
+| It is immutable.                                                                                                                                               | It is mutable                             |
+| It is included in `System` namespace.                                                                                                                          | It is included in `System.Text` namespace |
+| It is not recommended to use string for large string manipulation because every time when you assign a new value to a string variable new instance is created. | It is performant for larger strings.      |
 ### What is the difference between Fields and Properties?
 
 ### What do you mean by Reflection in C# ? 
