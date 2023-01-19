@@ -66,7 +66,13 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 |----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | It is considered as absolute constant i.e we have to initialize while declaring. | The variable declared with readonly keyword will be initialized either while declaring or within the construcutor. |
 | It is compile time constant.                                                     | It is runtime constant.                                                                                            |
+
 ### Difference between ref and out keyword ?
+`ref` and `out` keywords are used to pass data by reference.
+| ref                                       | out                                                                                            |
+|-------------------------------------------|------------------------------------------------------------------------------------------------|
+| ref is two way from caller to the callee. | out is one way it sends data back from callee to caller and any data from caller is discarded. |
+| It passes data and reference.             | It passes the reference only.                                                                  |
 
 ### Difference between stack and heap ?
 
@@ -203,6 +209,10 @@ using(var context = new AppDbContext())
 ### How is ACID property achieved in Entity Framework? How are auto increments handled in this ACID context?
 
 ### What do you know about repository patterns and unit of work pattern?
+Repository pattern is an extra layer that mediates bettwen the domain and the data mapping layers, acting like an in-memory collection of domain objects. Benefits are:
+* [x] Minimize duplicate query logic.
+* [x] Decouples your application from persistence frameworks. (eg. Entity framework)
+* [x] It makes easier to unit test our application by creating the mock implementation of the repository.
 
 ### What do you know about CQS, CQRS and ES?
 
