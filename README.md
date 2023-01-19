@@ -128,7 +128,11 @@ LINQ stands for Language Integrated Query. It is a uniform programming model for
 ### What do you know about change tracking in Entity Framework?
 
 ### What is the difference between IEnumerable and IQueryable in Entity Framework?
-
+| IEnumerable                                                          | IQueryable                                                      |
+|----------------------------------------------------------------------|-----------------------------------------------------------------|
+| We can make use of IEnumerable using `System.Collections` namespace. | We can make use of IQueryable using `System.Linq` namespace.    |
+| It is best suitable for in-memory operations.                        | It is best suitable for out-memory(remote database) operations. |
+| It can be used for Linq to Objects or Linq to XML operations.        | It can be used for Linq to SQL operations.                      |
 ### How is ACID property achieved in Entity Framework? How are auto increments handled in this ACID context?
 
 ### What do you know about repository patterns and unit of work pattern?
