@@ -138,6 +138,11 @@ Example:
 ### What do you know about Onion Architecture?
 
 ### What is Dependency Injection? What are the popular Dependency Injection libraries? What are the various life time and scopes and its practical use cases?
+Dependency Injection is a design methodology where in rather than  caller creating the instance, it's injected by some framework through constructor.
+The popular Dependency Injection libraries are as:
+* [AutoFac](https://autofac.org)
+* [Simple Injector](https://simpleinjector.org)
+* [Light Inject](https://www.lightinject.net)
 
 ###  What do you know about SOLID principles?
 
@@ -213,6 +218,8 @@ Repository pattern is an extra layer that mediates bettwen the domain and the da
 * [x] Minimize duplicate query logic.
 * [x] Decouples your application from persistence frameworks. (eg. Entity framework)
 * [x] It makes easier to unit test our application by creating the mock implementation of the repository.
+
+Unit of work maintains a list of objects affected by a business transaction and coordinates the writing out of changes.
 
 ### What do you know about CQS, CQRS and ES?
 
