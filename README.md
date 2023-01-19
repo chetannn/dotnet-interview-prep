@@ -62,10 +62,7 @@ int b = a;
 ```
 Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e data loss.
 ### Difference between constant and read only ?
-| const                                                                            | readonly                                                                                                           |
-|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| It is considered as absolute constant i.e we have to initialize while declaring. | The variable declared with readonly keyword will be initialized either while declaring or within the construcutor. |
-| It is compile time constant.                                                     | It is runtime constant.                                                                                            |
+
 ### Difference between ref and out keyword ?
 
 ### Difference between stack and heap ?
@@ -161,7 +158,15 @@ LINQ stands for Language Integrated Query. It is a uniform programming model for
 ### What are various HTTP Verbs/Methods? What are the major differences between GET and POST?
 
 ### What are the various HTTP Response codes and their purpose?
-
+| Status Code | Purpose                                                                     |
+|-------------|-----------------------------------------------------------------------------|
+| 200         | It refers to successful HTTP response.                                      |
+| 201         | It refers to successful creation of a resource.                             |
+| 301         | It refers to permanent redirection.                                         |
+| 400         | It refers to Bad Request. Generally thrown when validating request payload. |
+| 401         | It refers to Unauthorized.                                                  |
+| 404         | It refers to Not found HTTP response.                                       |
+| 500         | It refers to Internal Server Error.                                         |
 ### What are the differences between Authentication and Authorization? How are RBAC and Claims used in regards to Authorization? How is Policy Based Authorization used in Aspnetcore?
 
 ### What are various types of Authentication? Eg Basic Auth.
