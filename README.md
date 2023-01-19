@@ -101,7 +101,22 @@ Console.WriteLine(Add(1234567));
 | It is immutable.                                                                                                                                               | It is mutable                             |
 | It is included in `System` namespace.                                                                                                                          | It is included in `System.Text` namespace |
 | It is not recommended to use string for large string manipulation because every time when you assign a new value to a string variable new instance is created. | It is performant for larger strings.      |
+
 ### What is the difference between Fields and Properties?
+A Field is a normal class variable. Example:
+```csharp
+class Employee 
+{
+    public string name;
+}
+```
+A Property is an abstraction over a field. Getters and Setters can be define for a Property. A Property internally  maintains aa field known as `backing field`. Example:
+```csharp
+class Employee
+{
+    public string Name { get; set; }
+}
+```
 
 ### What do you mean by Reflection in C# ? 
 Reflection is the ability of a code to access the metadata of the assembly during the runtime.
@@ -136,6 +151,11 @@ Opening of database connection is very costly. To open a physical database conne
 <p>Hence, to minimize the cost of opening of connections, ADO.NET uses an optimization technique called connection pooling. A connection pool is different for every unique connection string.</p>
 
 ### What are the different types of architecture available in ADO.NET ?
+ADO.NET supports two type of architecture or model for interacting with the database. i.e
+* a. ADO.NET Disconnected
+When we use ADO.NET Disconnected Model then we don't need the connectivity between the application and the database for interacting with any database. We use `Connection`, `DataAdapter` and `DataSet` classes provided by the `System.Data` namespace for the disconnected model.
+* b. ADO.NET Connection Oriented Model
+When we use ADO.NET Connection Oriented Model then the connectivity between the application and the database has to be maintained till the application interacts with the database. We use `Connection`, `Commmand`,`DataReader` classes provided by the `System.Data` namespace for the connection oriented model.
 
 ### What is LINQ and why is it used ?
 LINQ stands for Language Integrated Query. It is a uniform programming model for any kind of data access. LINQ enables you to query and manipulate data independently of data sources. It also provides full type safety and compile time checking.
