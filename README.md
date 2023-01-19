@@ -121,6 +121,10 @@ Example:
 ###  What do you know about SOLID principles?
 
 ### What do you know about ORM? What are the advantages of ORM?
+ORM (Object Relational Mapping) is a mapping tool which is used to convert data between systems of incompatible types using object oriented programming languages. Advantages of ORM are:
+* [x] It speeds up the development time.
+* [x] It abstracts the logic for maintaining the database connection. 
+* [x] It improves security. ORM eliminates the potential SQL injection attack by sanitizing the parameter.
 
 ### What is connection pooling in ADO.NET ?
 Opening of database connection is very costly. To open a physical database connection our application does following:
