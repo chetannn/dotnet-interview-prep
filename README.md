@@ -62,7 +62,10 @@ int b = a;
 ```
 Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e data loss.
 ### Difference between constant and read only ?
-
+| const                                                                            | readonly                                                                                                           |
+|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| It is considered as absolute constant i.e we have to initialize while declaring. | The variable declared with readonly keyword will be initialized either while declaring or within the construcutor. |
+| It is compile time constant.                                                     | It is runtime constant.                                                                                            |
 ### Difference between ref and out keyword ?
 
 ### Difference between stack and heap ?
@@ -162,6 +165,7 @@ The various HTTP Verbs/Methods are as:
 * [x] PUT
 * [x] PATCH
 * [x] DELETE
+
 The major differences between `GET` and `POST` are as:
 
 | GET                                                      | POST                                                                         |
