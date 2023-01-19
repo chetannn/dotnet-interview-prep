@@ -141,6 +141,36 @@ Opening of database connection is very costly. To open a physical database conne
 LINQ stands for Language Integrated Query. It is a uniform programming model for any kind of data access. LINQ enables you to query and manipulate data independently of data sources. It also provides full type safety and compile time checking.
 
 ### What are the differences between lazy, eager and explicit loading in Entity Framework?
+Eager Loading refers to the related data to be loaded from the database as a part of the initial the initial query. Example:
+```csharp
+using (var context = new AppDbContext())
+{
+    var employees = context.Employees.Include(employee => employee.Department);
+}
+```
+Lazy loading refers to the related data to be loaded only when the navigation property is accessed.
+We need to use additional package called `Microsoft.EntityFrameworkCore.Proxies` for the EF Core to utilize Lazy loading feature and the property in the model should be marked as `virtual` as well. Example:
+```csharp
+// This is done in Startup.cs or Program.cs (dotnet core 6.0 +)
+var builder = WebApplicationBuilder.CreateBuilder(args);
+builder.services.AddDbContext<AppDbContext>(
+        opts => opts
+        .UseLazyLoadingProxies()
+        //.Use (Any database provider)
+        );
+```
+
+Explicit Loading refers to the loading mechanism where we load related data at the later point of time when required. This initial query does not contain the related records. It is the choice of the developer to load the data using Explicit loading. Example:
+```csharp
+using(var context = new AppDbContext())
+{
+    var employee = context.Employees.First();
+
+    context.Entry(employee)
+            .Reference(e => e.Department)
+            .Load();
+}
+```
 
 ### What do you know about change tracking in Entity Framework?
 
