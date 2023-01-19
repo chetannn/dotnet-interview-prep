@@ -156,6 +156,19 @@ LINQ stands for Language Integrated Query. It is a uniform programming model for
 ### How do you secure API?
 
 ### What are various HTTP Verbs/Methods? What are the major differences between GET and POST?
+The various HTTP Verbs/Methods are as:
+* [x] GET
+* [x] POST
+* [x] PUT
+* [x] PATCH
+* [x] DELETE  
+The major differences between `GET` and `POST` are as:
+| GET                                                                                 | POST                                                                                             |
+|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+|  GET requests are saved in browser history.                                         | POST requests are not saved in browser history.                                                  |
+| GET method only supports 2048 characters in the request.                            | It has no restriction over the amount of data to be sent.                                        |
+| Data are visible in the URL                                                         | Data are sent using request body so that none of the request payload is visible.                 |
+| It only supports the following encoding type:<br> application/x-www-form-urlencoded | It supports following encoding type:<br>application/x-www-form-urlencoded<br>multipart/form-data |
 
 ### What are the various HTTP Response codes and their purpose?
 | Status Code | Purpose                                                                     |
