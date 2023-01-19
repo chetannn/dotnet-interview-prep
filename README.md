@@ -62,7 +62,10 @@ int b = a;
 ```
 Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e data loss.
 ### Difference between constant and read only ?
-
+| const                                                                            | readonly                                                                                                           |
+|----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| It is considered as absolute constant i.e we have to initialize while declaring. | The variable declared with readonly keyword will be initialized either while declaring or within the construcutor. |
+| It is compile time constant.                                                     | It is runtime constant.                                                                                            |
 ### Difference between ref and out keyword ?
 
 ### Difference between stack and heap ?
@@ -73,7 +76,7 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 | Array has fixed length.                     | ArrayList is dynamic in nature.                      |
 | It is strongly typed.                       | It does not have strong typings.                     |
 | Array can only store define data types.     | ArrayList can store any datatypes.                   |
-| It is included in `System.Array` namespace. | It is included in `System.Collection` namespace.     |
+| It is included in `System.Array` namespace. | It is included in `System.Collections` namespace.     |
 | It is performant than ArrayList             | It has performance issue due to Boxing and Unboxing. |
 ### What is the purpose of “params” keyword in C# ?
 Params is used as a parameter which can take the variable number of arguments. For example:
