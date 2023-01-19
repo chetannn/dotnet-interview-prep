@@ -226,6 +226,25 @@ Unit of work maintains a list of objects affected by a business transaction and 
 ### What is the meaning of asynchronous? How does Task Parallel Library help in performance? How do you handle DI lifetime and scope when starting a new Task?
 
 ### Define REST API. What is the difference between API and REST API? What makes API a REST API?
+REST is a set of guidelines which helps in creating a system where applications can easily communicate with each other. If a system written by applying REST architecture concepts. it is called as RESTful API or REST API.
+
+An API can be implemented using any kind of protocol where as REST API follows the HTTP protocol to communicate between two systems. An API is more over a general term.
+Following are the guidelines that makes an API a REST API:
+
+* Seperation of client and server
+    * REST strictly operates on the web concept of Client and Server. Client and Server both operates without knowing each other. 
+
+* Stateless
+     * The server will not store anything about the latest HTTP request that the client made. It will treat every request as new. No session and no history.
+
+* Uniform Interface
+    * Particular resource is identified through URL (Uniform Resource Locator).
+
+* Cacheable
+    * The cacheable constraint requires that a response should implicitly or explicitly label itself as cacheable or non-cacheable.
+
+* Layered System
+    * The layered system style allows an architecture to be composed of hierarchial layers. For example: MVC is a layered system.
 
 ### How do you secure API?
 
@@ -261,6 +280,36 @@ The major differences between `GET` and `POST` are as:
 ### What are various types of Authentication? Eg Basic Auth.
 
 ### How do you manage multiple versions of API? Eg you have v1 and v2 APIs?
+When an application is deployed and started to be used in the production, It should be consistent and should not break for any reasons. But we are constantly rolling out new features, so in this case we try label the old Apis as the Version 1 and New Apis as Version 2. As a seperate version we can roll out changes without worrying about breaking things in production.
+We can use `Microsoft.AspNetCore.Mvc.Versioning` package can be used to version our API.
+In `Startup.cs` class:
+```csharp
+    services.AddApiVersioning(config => {
+      config.DefaultApiVersion = new ApiVersion(1, 0);
+      config.AssumeDefaultVersionWhenUnspecified = true;
+    });
+```
+In `EmployeesController.cs` class:
+
+```csharp
+
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    public class EmployeesController : ControllerBase
+    {
+        public IActionResult Get()
+        {
+            //
+        }
+
+        [MapToApiVersion("2.0")]
+        public IActionResult Get(string employeeName)
+        {
+            //
+        }
+    
+    }
+```
 
 ### What are middlewares in Aspnetcore? What is their usage?
 
