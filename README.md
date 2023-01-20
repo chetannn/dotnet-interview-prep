@@ -66,7 +66,13 @@ Here ``` .23 ``` is loosed. That is the disadvantage of explicit casting i.e dat
 |----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
 | It is considered as absolute constant i.e we have to initialize while declaring. | The variable declared with readonly keyword will be initialized either while declaring or within the construcutor. |
 | It is compile time constant.                                                     | It is runtime constant.                                                                                            |
+
 ### Difference between ref and out keyword ?
+`ref` and `out` keywords are used to pass data by reference.
+| ref                                       | out                                                                                            |
+|-------------------------------------------|------------------------------------------------------------------------------------------------|
+| ref is two way from caller to the callee. | out is one way it sends data back from callee to caller and any data from caller is discarded. |
+| It passes data and reference.             | It passes the reference only.                                                                  |
 
 ### Difference between stack and heap ?
 
@@ -101,7 +107,22 @@ Console.WriteLine(Add(1234567));
 | It is immutable.                                                                                                                                               | It is mutable                             |
 | It is included in `System` namespace.                                                                                                                          | It is included in `System.Text` namespace |
 | It is not recommended to use string for large string manipulation because every time when you assign a new value to a string variable new instance is created. | It is performant for larger strings.      |
+
 ### What is the difference between Fields and Properties?
+A Field is a normal class variable. Example:
+```csharp
+class Employee 
+{
+    public string name;
+}
+```
+A Property is an abstraction over a field. Getters and Setters can be define for a Property. A Property internally  maintains aa field known as `backing field`. Example:
+```csharp
+class Employee
+{
+    public string Name { get; set; }
+}
+```
 
 ### What do you mean by Reflection in C# ? 
 Reflection is the ability of a code to access the metadata of the assembly during the runtime.
@@ -117,6 +138,11 @@ Example:
 ### What do you know about Onion Architecture?
 
 ### What is Dependency Injection? What are the popular Dependency Injection libraries? What are the various life time and scopes and its practical use cases?
+Dependency Injection is a design methodology where in rather than  caller creating the instance, it's injected by some framework through constructor.
+The popular Dependency Injection libraries are as:
+* [AutoFac](https://autofac.org)
+* [Simple Injector](https://simpleinjector.org)
+* [Light Inject](https://www.lightinject.net)
 
 ###  What do you know about SOLID principles?
 
@@ -136,11 +162,46 @@ Opening of database connection is very costly. To open a physical database conne
 <p>Hence, to minimize the cost of opening of connections, ADO.NET uses an optimization technique called connection pooling. A connection pool is different for every unique connection string.</p>
 
 ### What are the different types of architecture available in ADO.NET ?
+ADO.NET supports two type of architecture or model for interacting with the database. i.e
+* a. ADO.NET Disconnected
+When we use ADO.NET Disconnected Model then we don't need the connectivity between the application and the database for interacting with any database. We use `Connection`, `DataAdapter` and `DataSet` classes provided by the `System.Data` namespace for the disconnected model.
+* b. ADO.NET Connection Oriented Model
+When we use ADO.NET Connection Oriented Model then the connectivity between the application and the database has to be maintained till the application interacts with the database. We use `Connection`, `Commmand`,`DataReader` classes provided by the `System.Data` namespace for the connection oriented model.
 
 ### What is LINQ and why is it used ?
 LINQ stands for Language Integrated Query. It is a uniform programming model for any kind of data access. LINQ enables you to query and manipulate data independently of data sources. It also provides full type safety and compile time checking.
 
 ### What are the differences between lazy, eager and explicit loading in Entity Framework?
+Eager Loading refers to the related data to be loaded from the database as a part of the initial the initial query. Example:
+```csharp
+using (var context = new AppDbContext())
+{
+    var employees = context.Employees.Include(employee => employee.Department);
+}
+```
+Lazy loading refers to the related data to be loaded only when the navigation property is accessed.
+We need to use additional package called `Microsoft.EntityFrameworkCore.Proxies` for the EF Core to utilize Lazy loading feature and the property in the model should be marked as `virtual` as well. Example:
+```csharp
+// This is done in Startup.cs or Program.cs (dotnet core 6.0 +)
+var builder = WebApplicationBuilder.CreateBuilder(args);
+builder.services.AddDbContext<AppDbContext>(
+        opts => opts
+        .UseLazyLoadingProxies()
+        //.Use (Any database provider)
+        );
+```
+
+Explicit Loading refers to the loading mechanism where we load related data at the later point of time when required. This initial query does not contain the related records. It is the choice of the developer to load the data using Explicit loading. Example:
+```csharp
+using(var context = new AppDbContext())
+{
+    var employee = context.Employees.First();
+
+    context.Entry(employee)
+            .Reference(e => e.Department)
+            .Load();
+}
+```
 
 ### What do you know about change tracking in Entity Framework?
 
@@ -153,6 +214,12 @@ LINQ stands for Language Integrated Query. It is a uniform programming model for
 ### How is ACID property achieved in Entity Framework? How are auto increments handled in this ACID context?
 
 ### What do you know about repository patterns and unit of work pattern?
+Repository pattern is an extra layer that mediates bettwen the domain and the data mapping layers, acting like an in-memory collection of domain objects. Benefits are:
+* [x] Minimize duplicate query logic.
+* [x] Decouples your application from persistence frameworks. (eg. Entity framework)
+* [x] It makes easier to unit test our application by creating the mock implementation of the repository.
+
+Unit of work maintains a list of objects affected by a business transaction and coordinates the writing out of changes.
 
 ### What do you know about CQS, CQRS and ES?
 CQS (Command Query Seperation) is a concept that divides an object's method into two categories:
@@ -166,6 +233,25 @@ ES (Event Sourcing) is a different approach to store data. Instead of storing th
 ### What is the meaning of asynchronous? How does Task Parallel Library help in performance? How do you handle DI lifetime and scope when starting a new Task?
 
 ### Define REST API. What is the difference between API and REST API? What makes API a REST API?
+REST is a set of guidelines which helps in creating a system where applications can easily communicate with each other. If a system written by applying REST architecture concepts. it is called as RESTful API or REST API.
+
+An API can be implemented using any kind of protocol where as REST API follows the HTTP protocol to communicate between two systems. An API is more over a general term.
+Following are the guidelines that makes an API a REST API:
+
+* Seperation of client and server
+    * REST strictly operates on the web concept of Client and Server. Client and Server both operates without knowing each other. 
+
+* Stateless
+     * The server will not store anything about the latest HTTP request that the client made. It will treat every request as new. No session and no history.
+
+* Uniform Interface
+    * Particular resource is identified through URL (Uniform Resource Locator).
+
+* Cacheable
+    * The cacheable constraint requires that a response should implicitly or explicitly label itself as cacheable or non-cacheable.
+
+* Layered System
+    * The layered system style allows an architecture to be composed of hierarchial layers. For example: MVC is a layered system.
 
 ### How do you secure API?
 
@@ -201,6 +287,36 @@ The major differences between `GET` and `POST` are as:
 ### What are various types of Authentication? Eg Basic Auth.
 
 ### How do you manage multiple versions of API? Eg you have v1 and v2 APIs?
+When an application is deployed and started to be used in the production, It should be consistent and should not break for any reasons. But we are constantly rolling out new features, so in this case we try label the old Apis as the Version 1 and New Apis as Version 2. As a seperate version we can roll out changes without worrying about breaking things in production.
+We can use `Microsoft.AspNetCore.Mvc.Versioning` package can be used to version our API.
+In `Startup.cs` class:
+```csharp
+    services.AddApiVersioning(config => {
+      config.DefaultApiVersion = new ApiVersion(1, 0);
+      config.AssumeDefaultVersionWhenUnspecified = true;
+    });
+```
+In `EmployeesController.cs` class:
+
+```csharp
+
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    public class EmployeesController : ControllerBase
+    {
+        public IActionResult Get()
+        {
+            //
+        }
+
+        [MapToApiVersion("2.0")]
+        public IActionResult Get(string employeeName)
+        {
+            //
+        }
+    
+    }
+```
 
 ### What are middlewares in Aspnetcore? What is their usage?
 
