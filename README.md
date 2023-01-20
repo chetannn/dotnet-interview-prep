@@ -1,6 +1,7 @@
 # dotnet-interview-prep
 
 ### What is Big O Notation ?
+Big O Notation describes the complexity of the code using algebraic terms. The complexity are termed as `Best-case` and `Worst-case`.
 
 ### What is CLR ?
 CLR (Common Language Runtime) is the runtime environment that converts the IL code to machine code.
