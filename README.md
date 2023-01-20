@@ -319,7 +319,13 @@ In `EmployeesController.cs` class:
 ```
 
 ### What are middlewares in Aspnetcore? What is their usage?
-Middlewares are the software that are assembled in an application pipeline. Each middleware can perform activities before and after the next component is called or invoked in the pipeline.
+Middlewares are the software that are assembled in an application pipeline. Each middleware can perform activities before and after the next component is called or invoked in the pipeline. Example:
+```csharp
+app.Run(async context =>
+{
+    await context.Response.WriteAsync("Hello world!");
+});
+```
 Their usages are:
 * [x] To handle exceptions.
 * [x] To handle request logs.
