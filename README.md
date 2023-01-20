@@ -319,5 +319,10 @@ In `EmployeesController.cs` class:
 ```
 
 ### What are middlewares in Aspnetcore? What is their usage?
+Middlewares are the software that are assembled in an application pipeline. Each middleware can perform activities before and after the next component is called or invoked in the pipeline.
+Their usages are:
+* [x] To handle exceptions.
+* [x] To handle request logs.
+* [x] To authorize request.
 
 ### How familiar are you with AspnetIdentity and IdentityServer? Have you customized default behaviors of AspnetIdentitiy features (eg implementing custom hash function instead of default AspnetIdentity hash function)? Have you implemented MFA and passwordless authentication? Have you implemented LDAP authentication using AspentIdentity?
