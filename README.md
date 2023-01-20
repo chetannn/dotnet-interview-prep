@@ -155,6 +155,13 @@ LINQ stands for Language Integrated Query. It is a uniform programming model for
 ### What do you know about repository patterns and unit of work pattern?
 
 ### What do you know about CQS, CQRS and ES?
+CQS (Command Query Seperation) is a concept that divides an object's method into two categories:
+* [x] <b>Queries</b> It returns the result and do not change the state of the system.
+* [x] <b>Command</b> It changes the state of the system but does not return any value.
+
+CQRS (Command Query Responsibility Segregation) is an architectural pattern that seperates the models for reading and writing the data. It is based on the `CQS` principal and even has more details. 
+
+ES (Event Sourcing) is a different approach to store data. Instead of storing the current state in the application state are stored as a sequence of events.
 
 ### What is the meaning of asynchronous? How does Task Parallel Library help in performance? How do you handle DI lifetime and scope when starting a new Task?
 
