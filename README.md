@@ -134,6 +134,10 @@ Example:
 ### When should we use abstract classes and when should we use interfaces? When do you override a function?
 
 ### What is Singleton class and what are its use cases?
+Singleton is a creational design pattern which ensures that the only one instance of the class is created throughout the life cycle of the application.
+It use cases are:
+* [x] Logging
+* [x] Game Managers in Video games etc.
 
 ### What do you know about Onion Architecture?
 
