@@ -209,6 +209,7 @@ using(var context = new AppDbContext())
 ```
 
 ### What do you know about change tracking in Entity Framework?
+We perform various database operation using Entity Framework. `DbContext` instance has a change tracker which tracks the changes such as `Add`, `Attach` and `Update` or query executed against the database. Whenever `SaveChanges` method is called, the changes made will be persisted to the database.
 
 ### What is the difference between IEnumerable and IQueryable in Entity Framework?
 | IEnumerable                                                          | IQueryable                                                      |
