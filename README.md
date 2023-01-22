@@ -141,6 +141,7 @@ It use cases are:
 * [x] Game Managers in Video games etc.
 
 ### What do you know about Onion Architecture?
+It is a form of layered architecture where application heavily relies on the domain model which lies at the center of the system. In other words, all coupling is towards the center. Around the domain model, there are other layers which may vary. These layers interact with each others using interfaces. This architecture heavily relies on `Dependency Inversion Principle`.
 
 ### What is Dependency Injection? What are the popular Dependency Injection libraries? What are the various life time and scopes and its practical use cases?
 Dependency Injection is a design methodology where in rather than  caller creating the instance, it's injected by some framework through constructor.
@@ -229,8 +230,8 @@ Unit of work maintains a list of objects affected by a business transaction and 
 
 ### What do you know about CQS, CQRS and ES?
 CQS (Command Query Seperation) is a concept that divides an object's method into two categories:
-* [x] <b>Queries</b> It returns the result and do not change the state of the system.
-* [x] <b>Command</b> It changes the state of the system but does not return any value.
+* [x] <b>Queries:</b> It returns the result and do not change the state of the system.
+* [x] <b>Command:</b> It changes the state of the system but does not return any value.
 
 CQRS (Command Query Responsibility Segregation) is an architectural pattern that seperates the models for reading and writing the data. It is based on the `CQS` principal and even has more details. 
 
