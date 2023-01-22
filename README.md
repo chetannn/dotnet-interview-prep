@@ -261,7 +261,12 @@ Following are the guidelines that makes an API a REST API:
     * The layered system style allows an architecture to be composed of hierarchial layers. For example: MVC is a layered system.
 
 ### How do you secure API?
-
+We can secure an API by following ways:
+* [x] Strong Authenication and Authorization mechanism such as OAuth 2.0 and OpenID Connect.
+* [x] API input validation.
+* [x] Rate Limiting.
+* [x] Encrypting the traffic with TLS.
+* [x] Usage of web application firewall.
 ### What are various HTTP Verbs/Methods? What are the major differences between GET and POST?
 The various HTTP Verbs/Methods are as:
 * [x] GET
